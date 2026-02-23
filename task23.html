@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>sample</title>
+        <style>
+         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;   
+            align-items: center;
+            background-color: rgb(224, 180, 180);
+            gap: 20px;      
+        }
+        img
+        {
+             width:500px;
+            height: 500px;
+            border-radius: 30px; 
+        }
+        button
+        {
+            background-color: rgb(214, 214, 85);
+            border-radius: 20px;
+            border: none;
+            padding: 20px;
+        }
+        </style>
+    </head>
+    <body>
+        <img id="demo" src="bangle1.jpg" >
+        <button onclick="document.getElementById('demo').src='bangle1.jpg'">click on</button>
+         <button onclick="document.getElementById('demo').src='bangle2.jpg'">click off</button>
+    </body>
+</html>
