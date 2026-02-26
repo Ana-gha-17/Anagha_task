@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Image Gallery</title>
+    <style>
+        body
+        {
+            background-color: blanchedalmond;
+            
+        }
+        img {
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+        }
+        .container
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap:30px;
+            margin-top: 50px;
+        }
+        
+        button
+        {
+            border-radius: 20px;
+            background-color: rgb(172, 119, 221);
+            border: none;
+            width:100px;
+            height: 40px;
+            cursor: pointer;
+            color: white;
+             transition: all 0.3s;
+        }
+        button:hover
+        {
+            background-color: rgb(226, 183, 129);
+            
+        }
+        button.active
+        {
+            background-color: rgb(226, 183, 129);
+            
+        }
+        .item
+        {
+            display: flex;
+            gap:20px;
+        }
+        .content
+        {
+             gap: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <button  class="active" onclick="filterImages('all')">All</button>
+        <button onclick="filterImages('bangles')">Bangles</button>
+        <button onclick="filterImages('dress')">Dress</button>
+        <button onclick="filterImages('earings')">Earings</button>
+    </div>
+    <div class="item">
+       <div><img src="bangle.jpg" class="bangles"></div> 
+        <div><img src="dress1.jpg" class="dress"></div>
+        <div><img src="dress2.jpg" class="dress"></div>
+       <div> <img src="earings1.jpg" class="earings"></div>
+        <div> <img src="earings2.jpg" class="earings"></div>
+    </div>
+</div>
+<script>
+function filterImages(category) {
+    let image = document.getElementsByTagName("img");
+    for (let i = 0; i < image.length; i++) {
+        if (category == "all") {
+            image[i].style.display = "inline";
+        }
+        else if (image[i].className == category) {
+            image[i].style.display = "inline";
+        }
+        else {
+            image[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
