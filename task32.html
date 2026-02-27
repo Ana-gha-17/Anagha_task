@@ -9,8 +9,9 @@
         }
         img {
             width: 250px;
-            height: 300px;
+            height: 270px;
             border-radius: 10px;
+            
         }
         .container
         {
@@ -20,47 +21,40 @@
             flex-direction: column;
             gap:30px;
             margin-top: 50px;
-        }
-        
+        }      
         button
         {
             border-radius: 20px;
-            background-color: rgb(172, 119, 221);
+            background-color: rgb(226, 129, 198);
             border: none;
-            width:100px;
+            width:90px;
             height: 40px;
             cursor: pointer;
             color: white;
-             transition: all 0.3s;
+            transition: all 0.3s;
         }
         button:hover
         {
-            background-color: rgb(226, 183, 129);
-            
+            background-color: rgb(159, 88, 225);
         }
         button.active
-        {
-            background-color: rgb(226, 183, 129);
-            
+        {  
+            background-color: rgb(159, 88, 225);
         }
         .item
         {
             display: flex;
             gap:20px;
         }
-        .content
-        {
-             gap: 20px;
-        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="content">
-        <button  class="active" onclick="filterImages('all')">All</button>
-        <button onclick="filterImages('bangles')">Bangles</button>
-        <button onclick="filterImages('dress')">Dress</button>
-        <button onclick="filterImages('earings')">Earings</button>
+        <button  class="active" onclick="filterImages('all',this)">All</button>
+        <button onclick="filterImages('bangles',this)">Bangles</button>
+        <button onclick="filterImages('dress',this)">Dress</button>
+        <button onclick="filterImages('earings',this)">Earings</button>
     </div>
     <div class="item">
        <div><img src="bangle.jpg" class="bangles"></div> 
@@ -71,7 +65,7 @@
     </div>
 </div>
 <script>
-function filterImages(category) {
+function filterImages(category, buttonClicked) {
     let image = document.getElementsByTagName("img");
     for (let i = 0; i < image.length; i++) {
         if (category == "all") {
@@ -84,8 +78,14 @@ function filterImages(category) {
             image[i].style.display = "none";
         }
     }
+    let buttons = document.getElementsByTagName("button");
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+
+    buttonClicked.classList.add("active");
 }
 </script>
-
 </body>
 </html>
