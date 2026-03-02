@@ -4,14 +4,13 @@
     <style>
         body
         {
-            background-color: blanchedalmond;
-            
+            background-color: blanchedalmond;         
         }
-        img {
+        img 
+        {
             width: 250px;
             height: 270px;
-            border-radius: 10px;
-            
+            border-radius: 10px;            
         }
         .container
         {
@@ -43,8 +42,10 @@
         }
         .item
         {
-            display: flex;
-            gap:20px;
+           display: flex;
+           flex-wrap: wrap;   
+           gap: 20px;  
+           margin-left: 5%;    
         }
     </style>
 </head>
@@ -57,11 +58,13 @@
         <button onclick="filterImages('earings',this)">Earings</button>
     </div>
     <div class="item">
-       <div><img src="bangle.jpg" class="bangles"></div> 
-        <div><img src="dress1.jpg" class="dress"></div>
-        <div><img src="dress2.jpg" class="dress"></div>
+       <div><img src="bangle.jpg" class="bangles"></div>
+       <div><img src="dress1.jpg" class="dress"></div>
+       <div><img src="dress2.jpg" class="dress"></div>       
        <div> <img src="earings1.jpg" class="earings"></div>
-        <div> <img src="earings2.jpg" class="earings"></div>
+       <div> <img src="earings2.jpg" class="earings"></div>
+       <div> <img src="dress3.jpg" class="dress"></div>
+       <div> <img src="bangles.jpg" class="bangles"></div>
     </div>
 </div>
 <script>
@@ -79,13 +82,11 @@ function filterImages(category, buttonClicked) {
         }
     }
     let buttons = document.getElementsByTagName("button");
-
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
     }
-
     buttonClicked.classList.add("active");
 }
 </script>
 </body>
-</html>
+</html> 
