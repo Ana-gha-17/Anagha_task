@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html>
     <head>
         <title>Countdown Timer</title>
@@ -58,65 +57,4 @@
     }
         </script>
     </body>
-=======
-<html>
-    <head>
-        <title>Countdown Timer</title>
-        <style>
-            body
-            {
-                background-color: rgb(174, 140, 206);
-                margin-top: 50px;              
-            }
-            .content
-            {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap:5px;
-            }
-            button
-            {
-                border-radius: 10px;
-                border: none;
-                background-color: rgb(213, 144, 94);
-                width: 150px;
-                height: 40px;
-                cursor: pointer;
-                color: white;
-            }
-            p
-            {
-                color: brown;
-                font-size: 30px;
-            }
-            .item
-            {
-                color: brown;
-                font-size: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="content">
-        <p id="timer">10</p><div class="item">s</div>
-        <button onclick="Timer()">Start Countdown</button>
-        </div>
-        <script>
-            let time = 10;        
-            let interval;         
-            function Timer() {
-                interval = setInterval(function() {
-                time--;  
-                document.getElementById("timer").innerText = time;
-                if (time <= 0) {
-                clearInterval(interval);  
-                document.getElementById("timer").innerText = "0";
-            }
-        }, 1000);  
-    }
-        </script>
-    </body>
->>>>>>> 627efa22eab65d0b03afe50eefab5390293933a0
 </html>

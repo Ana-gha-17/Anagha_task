@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html>
 <head>
     <title>Filter Products</title>
@@ -66,76 +65,4 @@ function filterItems() {
 }
 </script>
 </body>
-=======
-<html>
-<head>
-    <title>Filter Products</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #031339; 
-        }
-        .container-box {
-            background-color: #111827;
-            width: 700px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
-        .list-group-item {
-            background-color:rgb(33, 30, 30);
-            color: white;
-            border: 1px solid #2d3748;
-        }
-
-        .btn-custom {
-            background-color: #7c3aed;
-            color: white;
-            border: none;
-        }
-        .btn-custom:hover {
-            background-color: #6d28d9;
-        }
-    </style>
-</head>
-<body class="d-flex justify-content-center align-items-center vh-100">
-<div class="container-box">
-    <button class="btn btn-custom mb-3" onclick="filterItems()">
-        Show Items Below ₹10000
-    </button>
-    <ul id="result" class="list-group"></ul>
-</div>
-<script>
-const products = [
-    { name: "Laptop", price: 50000 },
-    { name: "Mobile", price: 20000 },
-    { name: "Headphones", price: 2000 },
-    { name: "Keyboard", price: 1500 },
-    { name: "Mouse", price: 3000 }
-];
-function displayProducts(productList) {
-    let output = "";
-    productList.forEach(product => {
-        output += `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            ${product.name}
-            <span>₹${product.price}</span>
-        </li>`;
-    });
-
-    document.getElementById("result").innerHTML = output;
-}
-displayProducts(products);
-
-function filterItems() {
-    const threshold = 10000;
-
-    const filteredProducts = products.filter(product => product.price < threshold);
-
-    displayProducts(filteredProducts);
-}
-</script>
-
-</body>
->>>>>>> 627efa22eab65d0b03afe50eefab5390293933a0
 </html>
