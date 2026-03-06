@@ -2,57 +2,96 @@
 <head>
 <title>Simple Todo</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
-     body {
-            background: linear-gradient(to right, #2c2d2e, #3961a7);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    .card
-    {
-        width:400px;
-    }
-    .btn
-    {
-        border-radius: none;
-        background-color: #536e9e;
-        width:200px;
-        border: none;
-    }
-    .btn:hover
-    {
-        background-color: #536e9e;
-    }
+body{
+    background: linear-gradient(to right,#2c2d2e,#3961a7);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card{
+    width:400px;
+}
+
+.btn{
+    background-color:#1e4d9f;
+    width:100px;
+    border:none;
+}
+
+.btn:hover{
+    background-color:#536e9e;
+}
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+li{
+    background:white;
+    padding:8px;
+    margin-bottom:5px;
+    border-radius:5px;
+}
 </style>
 </head>
+
 <body>
-<div class="card p-4 gap-3 bg-primary-subtle">
-    <input type="text" id="todo" placeholder="Enter todo" class="form-control">
-    <div class="text-center ">
-        <button class="btn"   onclick="saveTodo()">Save</button>
-    </div>
-    <p>Saved:<span id="result">None</span></p>
+
+<div class="card p-4 bg-primary-subtle">
+
+<input type="text" id="todo" placeholder="Enter todo" class="form-control mb-3">
+
+<div class="text-center mb-3">
+<button class="btn" onclick="saveTodo()">Save</button>
 </div>
+
+<ul id="result"></ul>
+
+</div>
+
 <script>
-function saveTodo() {
 
-    let text = document.getElementById("todo").value;
+function saveTodo(){
 
-    localStorage.setItem("todo", text);
+let text=document.getElementById("todo").value;
 
-    document.getElementById("result").innerText = text;
+if(text=="") return;
+
+let todos=JSON.parse(localStorage.getItem("todos")) || [];
+
+todos.push(text);
+
+localStorage.setItem("todos",JSON.stringify(todos));
+
+displayTodos();
+
+document.getElementById("todo").value="";
+
 }
-window.onload = function() {
 
-    let saved = localStorage.getItem("todo");
+function displayTodos(){
 
-    if(saved){
-        document.getElementById("result").innerText = saved;
-    }
+let todos=JSON.parse(localStorage.getItem("todos")) || [];
+
+let list="";
+
+for(let i=0;i<todos.length;i++){
+list += "<li>"+todos[i]+"</li>";
+}
+
+document.getElementById("result").innerHTML=list;
 
 }
+
+window.onload=function(){
+displayTodos();
+}
+
 </script>
+
 </body>
 </html>
