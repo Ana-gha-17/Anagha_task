@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,4 +75,82 @@
              clock();
         </script>
     </body>
+=======
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <title>Digital Clock</title>
+        <style>
+            body{
+                background: linear-gradient(to bottom,rgb(234, 69, 234),rgb(201, 132, 202));
+            }
+            .bg-cust{
+                background: linear-gradient(to bottom,rgb(234, 69, 234),rgb(201, 132, 202));
+
+            }
+            .content
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: linear-gradient(to bottom,rgb(116, 38, 116),rgb(176, 71, 178));
+                height: 300px;
+                border-radius: 10px;
+                gap:10px;
+                box-shadow: 0 0 10px 5px white;
+            }
+            .Time
+            {
+                font-family: cursive;
+                font-size:60px;
+                font-weight: bold;
+                color: rgb(36, 201, 216);
+                box-shadow: 0 5px 2px white;
+            }
+            .Date
+            {
+                font-family: monospace;
+                font-size: 25px;
+                color: rgb(238, 234, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container vh-100 d-flex justify-content-center align-items-center bg-cust">
+            <div class="content p-5">
+                <div class="Time" id="time"></div>
+                <div class="Date" id="date"></div>
+            </div>
+        </div>
+        <script>
+            function clock()
+            {
+                let current=new Date();
+                let h=current.getHours();
+                let m=current.getMinutes();
+                let s=current.getSeconds();
+                h = h < 10 ? "0" + h: h;
+                m = m < 10 ? "0" + m : m;
+                s = s < 10 ? "0" + s : s;
+                document.getElementById("time").innerHTML=h+":"+m+":"+s;
+                let months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+                ];
+                let days = [
+                "Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"
+                ];
+                let month=months[current.getMonth()];
+                let day=days[current.getDay()];
+                let date=current.getDate();
+                let year=current.getFullYear();
+                document.getElementById("date").innerHTML=day+" "+","+month+" "+date+","+year;
+            }
+             setInterval(clock, 1000);
+             clock();
+        </script>
+    </body>
+>>>>>>> 627efa22eab65d0b03afe50eefab5390293933a0
 </html>

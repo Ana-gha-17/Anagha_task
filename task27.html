@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Change Text Content</title>
@@ -44,4 +45,52 @@
             }          
         </script>
     </body>
+=======
+<html>
+    <head>
+        <title>Change Text Content</title>
+        <style>
+            body
+            {
+                background-color:rgb(193, 193, 225);
+                display: flex;
+                justify-content: center;   
+                align-items: center;      
+            }
+            .content
+            {
+                text-align: center;       
+            }
+            button
+            {
+                border-radius: 10px;
+                width:120px;
+                height: 40px;
+                border: none;
+                cursor: pointer;
+                background-color: rgb(149, 149, 237);
+                color: brown;
+                font-weight:bold;
+                font-size: 14px;
+            }
+            p
+            {
+                color:darkblue;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <button onclick="changeText()">Change Text</button>
+            <p id="text">Welcome to JavaScript</p>
+        </div>
+        <script>
+            function changeText()
+            {
+                 document.getElementById("text").innerHTML="Hai Hello";
+            }          
+        </script>
+    </body>
+>>>>>>> 627efa22eab65d0b03afe50eefab5390293933a0
 </html>

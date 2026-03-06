@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Simple Counter</title>
@@ -48,4 +49,56 @@
             }
         </script>
     </body>
+=======
+<html>
+    <head>
+        <title>Simple Counter</title>
+        <style>
+            body
+            {
+                background-color:rgb(188, 205, 210);
+                display: flex;
+                align-items: center;
+                justify-content: center;        
+            }
+            .container
+            {
+                display: flex;
+                align-items: center;
+                gap:20px;
+            }
+            button
+            {
+                border-radius: 10px;
+                border: none;
+                width: 100px;
+                height: 40px;
+                background-color: rgb(115, 115, 189);
+                color: white;
+                font-size: 15px;
+                cursor: pointer;
+            }
+            p
+            {
+                color: rgb(205, 83, 83);
+                font-size: 30px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p id="demo">0</p>
+            <button onclick="Increment()">Increment</button>
+        </div>
+        <script>
+            let count=0;
+            function Increment()
+            {
+                count++;
+                document.getElementById("demo").innerHTML=count;
+            }
+        </script>
+    </body>
+>>>>>>> 627efa22eab65d0b03afe50eefab5390293933a0
 </html>
