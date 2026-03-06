@@ -1,0 +1,251 @@
+
+<html>
+<head>
+    <title>Complex Admin Dashboard</title>
+    <style>
+        body {
+            background-color: rgb(130, 124, 124);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            grid-template-rows: 70px 1fr;
+            grid-template-areas:
+                "sidebar header"
+                "sidebar main";
+            height: 100vh;
+        }
+        .sidebar {
+            grid-area: sidebar;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+       .logo {
+            font-size: 30px;
+            color: rgb(183, 7, 98);
+            margin-bottom: 30px;
+        }
+
+        .item div{
+            color: rgb(153, 6, 6);
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .item div:hover {
+            background: rgb(183, 139, 85);
+        }
+        .item div.active
+        {
+            background: rgb(183, 139, 85);
+        }
+
+        .top {
+            grid-area: header;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            background: lightblue;
+            
+            border-bottom: 1px solid black;
+        }
+
+        .header {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            width: 250px;
+            
+        }
+
+        .search {
+            background: linear-gradient(to right, pink, red);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        .main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .small1, .small2, .small3 {
+            background-color: lightblue;
+            border-radius: 10px;
+            padding: 15px;
+            height: 100px;
+        }
+
+        .small1 { border-top: 5px solid black;
+        color:brown }
+        .small2 { border-top: 5px solid red; 
+        color:brown}
+        .small3 { border-top: 5px solid blue; 
+        color:brown}
+
+        .big {
+            background-color: lightblue;
+            grid-column: span 2;
+            border-radius: 10px;
+            padding: 15px;
+            height: 260px;
+        }
+
+        .menus {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            margin-top: 40px;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+            
+        }
+
+        .menus div {
+            background-color: brown;
+            flex: 1;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .menu1 { height: 60px; }
+        .menu2 { height: 90px; }
+        .menu3 { height: 70px; }
+        .menu4 { height: 100px; }
+
+        .order {
+            background-color: lightblue;
+            border-radius: 10px;
+            padding: 15px;
+            height: 400px;
+        }
+
+        .contents {
+            margin-top: 20px;
+        }
+
+        .heading, .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid black;
+        }
+        .row span.active
+        {
+            background: green;
+            border-radius: 20px;
+            width:90px;
+           
+        }
+        .row span.view
+        {
+            background: rgb(128, 41, 0);
+            border-radius: 20px;
+            width:90px;
+        }
+        .active
+        {
+            text-align: center;
+        }
+        .view
+        {
+            text-align: center;
+        }
+        .order h3
+        {
+            color: blue;
+        }
+        .big h3
+        {
+            color:blue;
+        }
+        .heading
+        {
+            color: rgb(61, 61, 191);
+            font-size: 17px;
+        }
+        .row
+        {
+            color: rgb(32, 3, 60);
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <aside class="sidebar">
+        <div class="logo">Dash</div>
+        <div class="item">
+        <div class="active">Overview</div>
+        <div >Analytics</div>
+        <div >Customers</div>
+        <div >Settings</div>
+        </div>
+    </aside>
+    <div class="top">
+        <div class="header">Search</div>
+        <div class="search">JD</div>
+    </div>
+    <div class="main">
+
+        <div class="small1">
+            <h4>Users</h4>
+            <h1>12.5k</h1>
+        </div>
+
+        <div class="small2">
+            <h4>Revenue</h4>
+            <h1>$45k</h1>
+        </div>
+
+        <div class="small3">
+            <h4>Bounce</h4>
+            <h1>24%</h1>
+        </div>
+
+        <div class="big">
+            <h3>Traffic Overview</h3>
+            <div class="menus">
+                <div class="menu1"></div>
+                <div class="menu2"></div>
+                <div class="menu3"></div>
+                <div class="menu4"></div>
+            </div>
+        </div>
+
+        <div class="order">
+            <h3>Recent Orders</h3>
+            <div class="contents">
+                <div class="heading">
+                    <span>ID</span>
+                    <span>Status</span>
+                    <span>Amount</span>
+                </div>
+                <div class="row">
+                    <span>#1024</span>
+                    <span class="active">Paid</span>
+                    <span>$120</span>
+                </div>
+                <div class="row">
+                    <span>#1025</span>
+                    <span class="view">Pending</span>
+                    <span>$85</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

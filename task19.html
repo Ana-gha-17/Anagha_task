@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title>File Manager</title>
+        <style>
+            body{
+                background-color:rgb(117, 117, 197);
+                margin: 0;
+            }
+            .container {
+                display: flex;
+                height: 100vh;
+            }
+
+            .sidebar
+            {
+                background-color: rgb(163, 163, 223);
+                width: 180px;
+                padding: 10px;
+            }
+            .header
+            {
+                display:flex;
+                justify-content: space-between;
+                width:100%;
+            }
+            .main {
+                display: flex;
+                gap: 30px;
+                flex: 1;          
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+              
+            .header
+            {
+                width: 100%;
+                margin-top: 10px;
+                border-bottom: 1px solid black;
+                
+            }
+
+            .item
+            {
+                width:150px;
+                height: 150px;
+                cursor: pointer;
+                align-content: center;
+                justify-items: center;
+
+            }
+            .item:hover
+            {
+                background-color: rgb(133, 118, 118);
+            }
+            .item div
+            {
+                font-size: 50px;
+            }
+            .footer {
+                margin-top: auto;  
+                align-content: center;
+                justify-items: center;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                width: 100%;
+            }
+
+            .fav
+            {
+                cursor: pointer;
+            }
+            .location
+            {
+                cursor: pointer;
+            }
+            .head.active
+            {
+                background-color: white;
+            }
+            h4:hover
+            {
+                background-color: rgb(133, 118, 118);
+            }
+            button
+            {
+                gap:20px;
+                cursor: pointer;
+                background-color:rgb(117, 117, 197);
+                width:50px;
+                border:none;
+            }
+            .content
+            {
+                width:100%;
+                display: flex;
+                gap:20px;
+               
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="fav">
+                    <h2>Favorites</h2>
+                    <div class="head active"><h4>Desktop</h4></div>
+                    <h4>Downloads</h4>
+                    <h4>Documents</h4>
+                    <h4>Applications</h4>
+                </div>
+                <div class="location">
+                    <h2>Locations</h2>
+                    <h4>Macintosh HD</h4>
+                    <h4>iCloud Drive</h4>
+                </div>
+            </div>
+            <div class="menu">
+            <div class="header">
+                <div class="content"> 
+                    <div class="button"><button><</button></div> 
+                    <div class="button"><button>></button></div> Macintosh HD / Users / Alex / Projects</div>
+                <div>Search</div>
+            </div>
+            <div class="main">
+                <div class="item">
+                    <div>📁</div>
+                    <h5>website-v2</h5>
+                </div>
+                <div class="item">
+                    <div>📁</div>
+                    <h5>assets</h5>
+                </div>
+                <div class="item">
+                    <div>📁</div>
+                    <h5>design-system</h5>
+                </div>
+                <div class="item">
+                    <div>📄</div>
+                    <h5>readme.md</h5>
+                </div>
+                <div class="item">
+                    <div>🖼️</div>
+                    <h5>logo.png</h5>
+                </div>
+                <div class="item">
+                    <div>⚙️</div>
+                    <h5>config.json</h5>
+                </div>
+            </div>
+            <div class="footer">
+                <div>6 items, 4.2 GB available</div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

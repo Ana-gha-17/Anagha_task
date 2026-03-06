@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Self Alignment</title>
+        <style>
+            .container
+            {
+                display:flex;
+                width: 220px;
+                height: 300px;
+                 border: 1px solid black;
+                 gap:20px;
+                align-items: flex-start;
+            }
+            .item1
+            {
+                background-color: blueviolet;
+                padding: 20px;
+            }
+            .item2
+            {
+                align-self: center;
+                background-color: blue;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item1">start</div>
+            <div class="item1">start</div>
+            <div class="item2">end</div>
+        </div>
+    </body>
+</html>

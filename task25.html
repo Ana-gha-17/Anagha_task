@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>password validty</title>
+        <style>
+            body
+            {
+                background-color: rgb(211, 195, 225);
+               
+            }
+            .container
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .content
+            {
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                height: 200px;
+                background-color: rgb(189, 139, 139);
+                justify-content: center;
+                align-items: center;
+                gap:20px;
+                border-radius: 10px;
+                font-size: 20px;
+                color: white;
+            }
+            input:focus
+            {
+                border:1px solid white;
+                outline:none;
+            }
+            button{
+                border-radius: 10px;
+                border: none;
+                width:100px;
+                height: 50px;
+                background-color: rgb(226, 166, 123);
+                color: white;
+                padding: 10px;
+                
+            }
+            input
+            {
+                border-radius: 10px;
+                border: none;
+                width:150px;
+                height: 50px;
+                background-color: rgb(226, 166, 123);
+                color: white;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div class="content" ><input type="password" id="password" placeholder="password">
+        <button id="checkbtn" onclick="getInput()">check</button></div>
+        <script>
+            let limit=0;
+            let lockTime = 10;
+            function getInput()
+            {
+                let correctpassword="anagha123";
+                let pass=document.getElementById("password").value;
+                let button = document.getElementById("checkbtn"); 
+                if(limit >= 3)
+                {
+                    button.disabled = true;
+                    let timeLeft = lockTime;
+                    button.innerHTML = "Wait " + timeLeft + "s";
+                    let timer = setInterval(function() {
+                    timeLeft--;
+                    button.innerHTML = "Wait " + timeLeft + "s";
+                    if(timeLeft <= 0)
+                    {
+                        clearInterval(timer);
+                        button.disabled = false;
+                        button.innerHTML = "check";
+                        limit = 0;
+                    }
+                    }, 1000);
+                    return false;
+                }
+                for(let i=limit;i<3;i++)
+                {
+                   while(correctpassword!=pass)
+                  {
+                    limit++;
+                    alert("wrong password!try again"+limit);
+                    return false;
+                  }
+                  alert("Login successful")
+                  limit=0;
+                  return;
+                }                
+                }      
+        </script>
+    </body>
+</html>

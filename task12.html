@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>SaaS Landing Page</title>
+        <style>
+            body
+            {
+                background-color: rgb(194, 194, 216);
+            }
+            .navbar
+            {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                padding:20px;
+            }
+            .navbar button:hover
+            {
+                background-color: gray;
+            }
+            .logo
+            {
+                color:rgb(56, 117, 137);
+                font-size: 25px;
+            }
+            .nav-links a
+            {
+                color:white;
+                text-decoration: none;
+               font-size: 20px;
+            }
+            .nav-links
+            {
+                display: flex;
+                gap:20px;
+            }
+            .heading
+            {
+                text-align: center;
+                font-size: 25px;
+            }
+            .heading h1{
+                 background:linear-gradient(to right,blue,rgb(160, 122, 196));
+                 -webkit-background-clip: text;
+                 -webkit-text-fill-color: transparent;
+            }
+            .heading p
+            {
+                color:rgb(130, 121, 121);
+                font-size:23px;
+            }
+            .heading button
+            {
+                background-color: rgb(66, 66, 74);
+                padding:15px;
+                border-color: solid black;
+                 border-radius:10px ;
+                 color:white;   
+                 font-size: 18px;
+                 border: none;
+            }
+            .heading button:hover
+            {
+                background-color: rgb(67, 136, 159)
+            }
+            .container
+            {
+                display:grid;
+                 grid-template-columns: 200px 200px 200px;
+                 padding: 200px;
+                 justify-items: center ;
+                 justify-content: space-evenly;   
+            }
+            .container button{
+                padding: 10px;
+                width:250px;
+                height: 80px;
+                border-radius: 20px;
+                background-color: rgb(66, 66, 74);
+                color: white;
+                font-size: 25px;
+                border:none;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="navbar">
+        <div class="logo">SaaS.io</div>  
+        <div class="nav-links">
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <button>Login</button>
+        </div>
+    </div>
+    <div class="heading">
+        <h1>Build Faster. Scale Better.</h1>
+        <p>The ultimate platform for modern developers to deploy applications in seconds.</p>
+        <button>Get Started</button>
+        <button>View Demo</button>
+    </div>
+    <div class="container">
+        <div><button>  Fast Deploy</button></div>
+        <div> <button>Secure</button></div>
+        <div><button>Analytics</button></div>
+    </div>
+    </body>
+</html>
