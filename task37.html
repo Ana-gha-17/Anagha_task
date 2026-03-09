@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Movie App</title>
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#310136;
+}
+.header{
+padding:16px;
+display:flex;
+justify-content:flex-end;
+background:#88297e;
+}
+#search{
+background:transparent;
+border:2px solid #552b5f;
+border-radius:50px;
+padding:12px;
+color:white;
+font-size:16px;
+}
+#search::placeholder{
+color:#bbb;
+}
+main{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+.movie{
+width:300px;
+margin:16px;
+background:#683769;
+border-radius:5px;
+overflow:hidden;
+position:relative;
+}
+.movie img{
+    width:100%;
+}
+.movie-info{
+color:#eee;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:8px;
+}
+.movie-info span{
+background:#a456a9;
+padding: 8px;
+border-radius:3px;
+font-weight:bold;
+}
+.overview{
+background:white;
+padding:20px;
+position:absolute;
+left:0;
+bottom:0;
+right:0;
+max-height:100%;
+transform:translateY(100%);
+transition:transform 0.3s ease-in;
+}
+.movie:hover .overview{
+transform:translateY(0);
+}
+</style>
+</head>
+<body>
+<div class="header">
+<form id="form">
+<input type="text" id="search" placeholder="Search movie">
+</form>
+</div>
+<main id="main"></main>
+<script>
+const API_URL="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=1&api_key=37153a486788dafbb90b90b4ed4ae4a1";
+const IMG_PATH="https://image.tmdb.org/t/p/w500";
+const SEARCH_API="https://api.themoviedb.org/3/search/movie?api_key=37153a486788dafbb90b90b4ed4ae4a1&query=";
+const main=document.getElementById("main");
+const form=document.getElementById("form");
+const search=document.getElementById("search");
+getMovies(API_URL);
+function getMovies(url){
+fetch(url)
+.then(res=>res.json())
+.then(data=>{
+showMovies(data.results);
+})
+}
+function showMovies(movies){
+main.innerHTML="";
+movies.forEach((movie)=>{
+const {title,poster_path,vote_average,overview}=movie;
+const movieEl=document.createElement("div");
+movieEl.classList.add("movie");
+movieEl.innerHTML=`
+<img src="${IMG_PATH+poster_path}" alt="${title}">
+
+<div class="movie-info">
+<h3>${title}</h3>
+<span>${vote_average}</span>
+</div>
+
+<div class="overview">
+<h3>Overview</h3>
+${overview}
+</div>
+
+`;
+main.appendChild(movieEl);
+
+})
+
+}
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const searchTerm=search.value;
+
+if(searchTerm){
+
+getMovies(SEARCH_API+searchTerm);
+
+search.value="";
+
+}else{
+
+window.location.reload();
+
+}
+
+})
+
+</script>
+
+</body>
+</html>
