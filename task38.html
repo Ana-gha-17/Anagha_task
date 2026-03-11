@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>Blog Website</title>
+<style>
+body{
+font-family:Arial;
+background:#6a522d;
+padding:20px;
+}
+.container{
+width:700px;
+margin:auto;
+}
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius: 10px;
+background-color: #ddbb8c;
+border:none;
+}
+button{
+padding:10px;
+margin-top:10px;
+margin-right:5px;
+border:none;
+background:#007bff;
+color:white;
+cursor:pointer;
+border-radius: 10px;
+}
+.blog{
+background: #ddbb8c;;
+padding:15px;
+margin-top:20px;
+border-radius:5px;
+}
+h1,h2,h3
+{
+    color: rgb(19, 4, 70);
+}
+.edit{
+background:rgb(53, 49, 43);
+}
+.delete{
+background:rgb(143, 44, 44);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Blog Website</h1>
+<h3>Create Blog</h3>
+<input type="text" id="title" placeholder="Blog Title">
+<textarea id="content" placeholder="Blog Content"></textarea>
+<button onclick="postBlog()">Post Blog</button>
+<h2>Blog List</h2>
+<div id="blogList"></div>
+</div>
+<script>
+let blogs=[];
+let editIndex=null;
+function loadBlogs(){
+fetch("https://jsonplaceholder.typicode.com/posts")
+.then(response => response.json())
+.then(data =>{
+blogs = data.slice(0,10).map(function(post){
+return {
+title:post.title,
+content:post.body
+}
+});
+displayBlogs();
+});
+}
+function postBlog(){
+let title=document.getElementById("title").value;
+let content=document.getElementById("content").value;
+if(title=="" || content==""){
+alert("Please enter title and content");
+return;
+}
+let blog={
+title:title,
+content:content
+};
+if(editIndex===null){
+fetch("https://jsonplaceholder.typicode.com/posts",{
+method:"POST",
+body:JSON.stringify({
+title:title,
+body:content,
+userId:1
+}),
+
+headers:{
+"Content-type":"application/json; charset=UTF-8"
+}
+})
+.then(response => response.json())
+
+.then(data =>{
+blogs.unshift(blog);
+displayBlogs();
+});
+}
+else{
+blogs[editIndex]=blog;
+editIndex=null;
+displayBlogs();
+}
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+}
+function displayBlogs(){
+let output="";
+blogs.forEach(function(blog,index){
+output+=`
+<div class="blog">
+<h3>${blog.title}</h3>
+<p>${blog.content}</p>
+<button class="edit" onclick="editBlog(${index})">Edit</button>
+<button class="delete" onclick="deleteBlog(${index})">Delete</button>
+</div>
+`;
+});
+document.getElementById("blogList").innerHTML=output;
+}
+function editBlog(index){
+let blog=blogs[index];
+document.getElementById("title").value=blog.title;
+document.getElementById("content").value=blog.content;
+editIndex=index;
+}
+function deleteBlog(index){
+blogs.splice(index,1);
+displayBlogs();
+}
+loadBlogs();
+</script>
+</body>
+</html>
